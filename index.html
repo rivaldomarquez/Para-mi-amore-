@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Amorcitoo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Pantalla de bienvenida -->
+    <div id="welcome-screen" class="screen">
+        <img src="fotos de nosotros/imagen1.jpeg" alt="Nosotros" class="main-image">
+        <h1 class="welcome-text">Hola amore de mi vida, amore mi amor preciona aquii</h1>
+        <div class="hearts-animation"></div>
+        <button id="to-letter-button" class="action-button">Ir a la carta</button>
+    </div>
+
+    <!-- Pantalla de la carta -->
+    <div id="letter-screen" class="screen hidden">
+        <div class="letter-container">
+            <!-- Carta -->
+            <div class="letter-content">
+                <p class="letter-text">
+                    Mi amorrr, otra vez aquí, muajaja. Te escribo este pequeño detalle. Gracias, gracias por aguantarme,
+                     por seguir conmigo, por seguir al lado mío a cada paso que doy. Te agradezco por todo, mi amor.
+                      Sabes que te admiro, te amo y te quiero muchísimo. Eres todo para mí. Decirte que te amo...
+                       ¡te amoooo muchísimo! Y pues, que guardes este pequeño detalle, que será el principio de todo.
+                        Muaaa, te amo, mi amorrrr.. ❤️
+                </p>
+            </div>
+            <!-- Galería de imágenes -->
+            <div class="photo-gallery">
+                <div class="photo" style="background-image: url('fotos de nosotros/imagen2.jpeg');"></div>
+                <div class="photo" style="background-image: url('fotos de nosotros/imagen3.jpeg');"></div>
+                <div class="photo" style="background-image: url('fotos de nosotros/imagen4.jpeg');"></div>
+                <div class="photo" style="background-image: url('fotos de nosotros/imagen5.jpeg');"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toLetterButton = document.getElementById('to-letter-button');
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const letterScreen = document.getElementById('letter-screen');
+        const photos = document.querySelectorAll('.photo');
+
+        toLetterButton.addEventListener('click', () => {
+            welcomeScreen.classList.add('hidden');
+            letterScreen.classList.remove('hidden');
+
+            // Animación de las imágenes
+            let delay = 0;
+            photos.forEach(photo => {
+                setTimeout(() => {
+                    photo.classList.add('visible');
+                    setTimeout(() => {
+                        photo.classList.remove('visible');
+                    }, 3000); // Duración de la visibilidad de cada imagen
+                }, delay);
+                delay += 1000; // Retraso entre imágenes
+            });
+        });
+    </script>
+</body>
+</html>
